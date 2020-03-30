@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "NODE_ENV=production node src/server.js",
     "dev-client": "react-scripts start",
     "dev-server": "nodemon src/server.js",
     "build": "react-scripts build",
