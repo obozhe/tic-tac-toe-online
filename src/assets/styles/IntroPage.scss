@@ -30,7 +30,7 @@
       }
       input {
         width: calc(100% - 50px);
-        background-color: #a8bcff;
+        background-color: $violet;
         font-size: 110%;
         padding-left: 25px;
 
@@ -47,7 +47,7 @@
 
         &:hover,
         &:focus {
-          background-color: #b6c6fd;
+          background-color: $light-violet;
           box-shadow: 0 5px 20px -10px #000000;
         }
 
@@ -60,7 +60,7 @@
       button {
         margin-left: 5px;
         width: 40px;
-        background-color: #a8bcff;
+        background-color: $violet;
         font-size: 110%;
         cursor: pointer;
         transition: 0.3s;
@@ -68,7 +68,7 @@
         &:hover,
         &:focus {
           transform: translateY(-3px);
-          background-color: #b6c6fd;
+          background-color: $light-violet;
           box-shadow: 0 5px 20px -10px #000000;
         }
 
@@ -81,7 +81,7 @@
 
   .error-message {
     text-align: center;
-    color: #df6969;
+    color: $red-orange;
     opacity: 0;
     transition: 0.2s;
 

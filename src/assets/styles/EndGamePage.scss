@@ -8,14 +8,14 @@
   background-color: #1d243aee;
   justify-content: center;
   align-items: center;
-  color: #abdae2;
+  color: $sea-green;
   font-size: 4rem;
   flex-direction: column;
 
   button {
     transition: 0.3s;
     font-size: 2rem;
-    background-color: #abdae2;
+    background-color: $sea-green;
     border: 1px solid black;
     padding: 0.25em 0.5em;
     cursor: pointer;
@@ -23,8 +23,8 @@
     border-radius: 10px;
 
     &:hover {
-      background-color: #1d243a;
-      color: #abdae2;
+      background-color: $dark-violet;
+      color: $sea-green;
       border-color: white;
     }
   }
