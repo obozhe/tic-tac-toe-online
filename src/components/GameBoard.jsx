@@ -3,6 +3,18 @@ import socket from '../utils/socket';
 import IntroPage from './IntroPage';
 import EngGamePage from './EngGamePage';
 
+const initBoard = [
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined,
+  undefined
+];
+
 export default class GameBoard extends Component {
   constructor() {
     super();
@@ -12,17 +24,7 @@ export default class GameBoard extends Component {
       id: null,
       roomID: null,
       currentTurn: null,
-      board: [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined
-      ],
+      board: [...initBoard],
       wrongId: null,
       endGameMessage: ''
     };
@@ -69,6 +71,17 @@ export default class GameBoard extends Component {
 
   setRoomId(roomID) {
     this.setState({ roomID });
+
+    if (!roomID) {
+      this.setState({
+        team: null,
+        input: '',
+        currentTurn: null,
+        board: [...initBoard],
+        wrongId: null,
+        endGameMessage: ''
+      });
+    }
   }
 
   setTeam(team) {
@@ -113,11 +126,18 @@ export default class GameBoard extends Component {
   }
 
   setBoardHoverClass() {
+    if (this.board.classList.contains('x')) this.board.classList.remove('x');
+    if (this.board.classList.contains('circle')) this.board.classList.remove('circle');
+
     this.board.classList.add(this.team);
   }
 
   handleRestart() {
     this.socket.restart();
+  }
+
+  statusMessage() {
+    return this.state.currentTurn === this.team ? 'Your turn!' : 'Wait for opponents turn...';
   }
 
   render() {
@@ -134,6 +154,7 @@ export default class GameBoard extends Component {
             ></div>
           ))}
         </div>
+        <div className="status-message">{this.statusMessage()}</div>
 
         {endGameMessage && (
           <EngGamePage message={endGameMessage} handleRestart={this.handleRestart} />

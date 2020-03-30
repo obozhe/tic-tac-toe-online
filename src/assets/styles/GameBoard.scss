@@ -3,6 +3,8 @@
   --mark-size: calc(var(--cell-size) * 0.9);
 }
 
+
+
 .board {
   width: 100vw;
   height: 100vh;
@@ -103,4 +105,15 @@
   width: calc(var(--mark-size) * 0.7);
   height: calc(var(--mark-size) * 0.7);
   background-color: $bg-gray;
+}
+
+.status-message{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100px;
+  background-color: #a8bcff8e;
+  padding: 20px 40px;
+  border-radius: 15px;
+  font-size: 20px;
 }

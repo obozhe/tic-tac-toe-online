@@ -16,8 +16,6 @@ server.listen(port, () => {
 });
 
 const sockets = new Map();
-const roomsIds = [];
-const rooms = new Map();
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../dist')));
@@ -32,16 +30,11 @@ io.on('connection', socket => {
   });
 
   socket.on('connectTo', i => {
-    if (sockets.has(i)) {
+    if (sockets.has(i) && i !== id) {
       const socket1 = { id: i, socket: sockets.get(i) };
       const socket2 = { id, socket };
       let newRoomId = randomInteger();
-      while (roomsIds.includes(newRoomId)) {
-        newRoomId = randomInteger();
-      }
       const room = new Room(newRoomId, socket1, socket2);
-      roomsIds.push(newRoomId);
-      rooms.set(newRoomId, room);
       room.initSockets();
     } else {
       socket.emit('wrongId', i);

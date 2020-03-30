@@ -28,6 +28,8 @@ class Room {
   constructor(roomID, socket1, socket2) {
     this.placeMark = this.placeMark.bind(this);
     this.restart = this.restart.bind(this);
+    this.disconnectHost = this.disconnectHost.bind(this);
+    this.disconnectGuest = this.disconnectGuest.bind(this);
 
     this.roomID = roomID;
     this.board = [...initialBoard];
@@ -57,6 +59,17 @@ class Room {
 
     this.host.socket.on('restart', this.restart);
     this.guest.socket.on('restart', this.restart);
+
+    this.host.socket.on('disconnect', this.disconnectHost);
+    this.guest.socket.on('disconnect', this.disconnectGuest);
+  }
+
+  disconnectHost() {
+    this.guest.socket.emit('roomID', null);
+  }
+
+  disconnectGuest() {
+    this.host.socket.emit('roomID', null);
   }
 
   restart() {

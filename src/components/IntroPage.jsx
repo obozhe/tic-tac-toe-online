@@ -14,7 +14,11 @@ const IntroPage = ({ id, handleInput, input, submitConnect, wrongId }) => {
           </button>
         </div>
         <div className={`${wrongId ? 'error-message show' : 'error-message'}`}>
-          <p>Player with ID #{wrongId} doesn't exist. Try again!</p>
+          {wrongId === id ? (
+            <p>You can't play with yourself :D</p>
+          ) : (
+            <p>Player with ID #{wrongId} doesn't exist. Try again!</p>
+          )}
         </div>
       </div>
     </div>
