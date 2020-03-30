@@ -2,19 +2,23 @@
   "name": "tic-tac-toe",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev-client": "react-scripts start",
+    "dev-server": "nodemon src/server.js",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
+    "express": "^4.17.1",
+    "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   },
   "eslintConfig": {
     "extends": "react-app"

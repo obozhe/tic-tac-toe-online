@@ -1,0 +1,31 @@
+.winning-message {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1d243aee;
+  justify-content: center;
+  align-items: center;
+  color: #abdae2;
+  font-size: 4rem;
+  flex-direction: column;
+
+  button {
+    transition: 0.3s;
+    font-size: 2rem;
+    background-color: #abdae2;
+    border: 1px solid black;
+    padding: 0.25em 0.5em;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: #1d243a;
+      color: #abdae2;
+      border-color: white;
+    }
+  }
+}
