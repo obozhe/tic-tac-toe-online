@@ -18,7 +18,7 @@ server.listen(port, () => {
 const sockets = new Map();
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../dist')));
+  app.use(express.static(path.join(__dirname, '../build')));
 }
 
 io.on('connection', socket => {
